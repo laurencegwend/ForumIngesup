@@ -1,21 +1,52 @@
-<div class="container-fluid">
-    <div class="row">
-        <div class="col-md-6">
-            <h2>Log Out</h2>
-            <h3>Hi, here you can log out. Just press the "Sign Up" button.</h3>
-            @if($errors->any())
-                <div class="alert alert-danger">
-                    @foreach($errors->all() as $error)
-                        <p>{{ $error }}</p>
-                    @endforeach
-                </div>
-            @endif
 
-            {!! Form::open(array('url' => 'auth/logout','class'=>'form', 'method' => 'GET')) !!}
+@extends('layouts.master')
 
-            {!! Form::submit('Sign Out' , array('class' => 'btn btn-primary')) !!}
+@section('content')
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
 
-            {!! Form::close() !!}
+        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+
+        <style>
+            html, body {
+                height: 100%;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                width: 100%;
+                display: table;
+                font-weight: 100;
+                font-family: 'Lato';
+            }
+
+            .container {
+                text-align: center;
+                display: table-cell;
+                vertical-align: middle;
+            }
+
+            .content {
+                text-align: center;
+                display: inline-block;
+            }
+
+            .title {
+                font-size: 96px;
+            }
+        </style>
+    </head>
+    <body>
+
+    <div class="container">
+        <div class="content">
+            <img src="{{url('http://forex-ecole.com/wp-content/uploads/2015/03/forum.jpg')}} ">
+            <div class="title">Bienvenue sur IngesupForum....</div>
         </div>
     </div>
-</div>
+    </body>
+    </html>
+@stop
