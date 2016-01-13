@@ -1,52 +1,22 @@
-
 @extends('layouts.master')
 
 @section('content')
-<!DOCTYPE html>
+        <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
+<head>
+    <meta charset="utf-8">
 
-        <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+</head>
+<body>
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
-
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
-
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-
-    <div class="container">
-        <div class="content">
-            <img src="{{url('http://forex-ecole.com/wp-content/uploads/2015/03/forum.jpg')}} ">
-            <div class="title">Bienvenue sur IngesupForum....</div>
-        </div>
+<div class="container">
+    <div class="content">
+        <img src="{{url('http://forex-ecole.com/wp-content/uploads/2015/03/forum.jpg')}} ">
+        <div class="title">Bienvenue sur IngesupForum....</div>
     </div>
-    </body>
-    </html>
+</div>
+</body>
+</html>
 @stop
