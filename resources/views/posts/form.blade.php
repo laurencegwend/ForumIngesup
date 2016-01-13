@@ -1,30 +1,38 @@
 @extends('layouts.master')
+
 @section('content')
-    <div class="row">
-        <div class="col-md-8 col-md-offset-4">
-            <div class="form-block">
-                <h1> Creer un sujet </h1>
-                <form method="POST" action="{{route("posts.store")}}">
-                    {!! csrf_field() !!}
 
-                    <div class="form-group">
-                        <labael>Titre du sujet:</labael>
-                        <input type="text" name="name" value="{{ old('name') }}">
+    <div class="container">
+        <div class="row">
+                <h2> Create a Subject </h2>
+
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        @foreach($errors->all() as $error)
+                            <p>{{ $error }}</p>
+                        @endforeach
                     </div>
+                @endif
 
-                    <div class="form-group">
-                        <label> Votre message: </labael>
-                            <textarea name="message" ></textarea>
-                    </div>
+            {!! Html::ul($errors->all(), array('class'=>'errors')) !!}
+
+            {!!Form::open(['method' => 'POST', 'url' => route('admin.posts.store')])!!}
+
+                <div class="col-xs-6">
+                    {!! Form::label('name', 'Title') !!}
+                    {!! Form::text('name', null, array('class' => 'form-control','placeholder' => 'name')) !!}
 
 
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
-                    </div>
-                </form>
+                    {!! Form::label('message', 'Message') !!}
+                    {!! Form::textarea('message', null, array('class' => 'form-control','placeholder' => 'message')) !!}
+
+                    <br/>
+                    {!! Form::submit('Send' , array('class' => 'btn btn-primary')) !!}
+
+                    {!! Form::close() !!}
+                </div>
+
             </div>
-        </div>
     </div>
-
 
 @stop
