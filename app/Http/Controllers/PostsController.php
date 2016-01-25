@@ -43,7 +43,8 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $post = Post::create($request->all());
-        $post->user_id = \Auth::user()->id;
+        $post->user_id = Auth::user()->id;
+        dd(Auth::user());
         $post->save();
 
         return redirect('posts');
