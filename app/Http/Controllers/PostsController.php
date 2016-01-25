@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Post;
-use \Input;
-
+use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller
 {
@@ -43,8 +43,10 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $post = Post::create($request->all());
+        $post->user_id = \Auth::user()->id;
+        $post->save();
 
-        return redirect('admin/posts');
+        return redirect('posts');
     }
 
     /**
@@ -83,7 +85,7 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $post->update($request->all());
 
-        return redirect ('admin/posts');
+        return redirect ('posts');
     }
 
     /**

@@ -28,11 +28,6 @@
     <div class="container">
         <div class="navbar-header">
             <img alt="Logo" src="{{ asset('img/logo.png') }}">
-            <nav class="navbar navbar-default navbar-static-top">
-                <div class="container">
-
-                </div>
-            </nav>
         </div>
     </div>
 </div>

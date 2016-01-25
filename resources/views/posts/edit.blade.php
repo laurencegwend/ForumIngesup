@@ -15,12 +15,12 @@
                 </div>
             @endif
 
-            {!!Form::open(['method' => 'PUT', 'url' => route('admin.posts.update', $post)])!!}
+            {!!Form::open(['method' => 'PUT', 'url' => route('posts.update', $post)])!!}
 
             <div class="form-group">
-                {!!Form::label('name', 'Title:', ['class' => 'col-sm-2 control-label'])!!}
+                {!!Form::label('title', 'Title:', ['class' => 'col-sm-2 control-label'])!!}
 
-                {!!Form::text('name', $post->name, ['class' => 'form-control xs-4'])!!}
+                {!!Form::text('title', $post->name, ['class' => 'form-control xs-4'])!!}
 
             </div>
             <div class="form-group">

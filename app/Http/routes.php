@@ -48,7 +48,7 @@ Route::get('register', [
 ]);
 */
 
-/* Authenticated users */
+/* Authenticated users
 Route::group(['middleware' => 'auth'], function()
 {
     Route::get('users/dashboard', array('as'=>'dashboard', function()
@@ -56,12 +56,34 @@ Route::group(['middleware' => 'auth'], function()
         return View('users.dashboard');
     }));
 });
+*/
 
-Route::group(['namespace' => 'Admin', 'prefix' =>'admin'], function(){
 
-    Route::resource('posts', 'PostsController');
-    Route::post('posts/create', 'PostsController@store')->name("posts.store");
+Route::get('posts', [
+    'as' => 'posts.list',
+    'uses' => 'PostsController@index'
+]);
 
-});
+Route::get('posts/create', [
+    'as' => 'posts.create',
+    'uses' => 'PostsController@create'
+]);
+
+Route::get('posts/{id}/edit', [
+    'as' => 'posts.edit',
+    'uses' => 'PostsController@edit'
+]);
+
+Route::post('posts/store', [
+    'as' => 'posts.store',
+    'uses' => 'PostsController@store'
+]);
+
+Route::put('posts/{id}/edit', [
+    'as' => 'posts.update',
+    'uses' => 'PostsController@update'
+]);
+
+
 
 
