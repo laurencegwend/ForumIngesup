@@ -2,8 +2,8 @@
 
 @section('content')
 
-<div class="container login col-md-3 col-md-offset-3">
-    <div class="row">
+<div class="container login">
+    <div class="row row-login">
         @if($errors->any())
             <div class="alert alert-danger">
                 @foreach($errors->all() as $error)
@@ -11,21 +11,29 @@
                 @endforeach
             </div>
         @endif
-        <div class="row">
+        <div class="row row-form">
             {!! Form::open(array('url' => 'auth/login','class'=>'form')) !!}
 
-            {!! Form::label('email', 'E-Mail Address') !!}
-            {!! Form::text('email', null, array('class' => 'form-control','placeholder' => 'example@gmail.com')) !!}
-
+            {!! Form::label('email', 'Email') !!}
+            {!! Form::text('email', null, array('class' => 'form-control','placeholder' => 'firstname.lastname@ynov.com')) !!}
+            <br/>
+            <br/>
             {!! Form::label('password', 'Password') !!}
-            {!! Form::password('password', array('class' => 'form-control')) !!}
-
+            {!! Form::password('password', array('class' => 'form-control','placeholder' => '********')) !!}
+            <br/>
+            <br/>
             {!! Form::submit('Sign In' , array('class' => 'btn btn-primary')) !!}
 
             {!! Form::close() !!}
         </div>
         <div class="row">
-            Don't Have an Account
+            <a href="#" class="forgot-password">Forgot Your Password</a>
+        </div>
+    </div>
+    <div class="row row-register">
+        <div class="row">
+            <h5>Don't Have an Account</h5>
+            <a href="/auth/register"><button class="btn btn-primary btn-sm">Sign Up</button></a>
         </div>
     </div>
 </div>

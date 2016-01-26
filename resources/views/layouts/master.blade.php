@@ -21,7 +21,7 @@
                 <li class="pull-left">
                     <a href="/questions">Questions</a>
                 </li>
-                <li class="pull-left">
+                <li class="col-md-6">
                     <a href="/question/create">Ask a Question</a>
                 </li>
                 </li>

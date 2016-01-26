@@ -27,6 +27,45 @@ div.login {
     margin-bottom: 50px;
     margin-top: 50px;
 }
+div.row-login{
 
+    border: 2px black solid;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 30px;
+    margin-top: 50px;
+}
+div.row.row-login{
+    height:500px
+}
+div.row-register{
+    border: 2px black solid;
+    text-align: center;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+div.row.row-register{
+    height: 100px;
+}
+div.row-form{
+    width:500px
+    text-align: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+div.row.row-form{
+    height:400px;
+}
 
+div.row.row-form > form{
+    height:275px;
+}
+div.well{
+    font-size: 25px;
+}
 

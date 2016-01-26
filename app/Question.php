@@ -9,7 +9,7 @@ class Question extends Model
 
     protected $table = 'question';
 
-    protected $fillable = ['title', 'message', 'user_id'];
+    protected $fillable = ['title', 'content', 'user_id'];
 
     public function user()
     {

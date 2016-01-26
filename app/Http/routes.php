@@ -40,6 +40,11 @@ Route::get('question/create', [
     'uses' => 'QuestionController@create'
 ]);
 
+Route::get('question/{id}', [
+    'as' => 'question.show',
+    'uses' => 'QuestionController@show'
+]);
+
 Route::get('question/{id}/edit', [
     'as' => 'question.edit',
     'uses' => 'QuestionController@edit'

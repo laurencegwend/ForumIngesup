@@ -13,14 +13,14 @@
         @endif
         @if ( !$questions->count() )
             <div class="well well-lg">You have no Questions for now</div>
-            <a href="{{ route('question.create') }}">Create a Post</a>
+            <a href="{{ route('question.create') }}">Ask a Question</a>
         @else
             <div class="row">
                 <section class="col-md-6">
-                    <h2>All Posts</h2>
+                    <h2>All Questions</h2>
                 </section>
                 <section class="col-md-6">
-                    <a href="{{ route('question.create') }}" class="pull-right add-post-link">Add a Post</a>
+                    <a href="{{ route('question.create') }}" class="pull-right add-post-link">Ask a Question</a>
                 </section>
             </div>
             <div class="row">
@@ -28,12 +28,14 @@
                     <tbody>
                     @foreach($questions as $questionItem)
                         <tr>
-                            <td class="col-md-4">{{$questionItem->title}}</td>
+                            <td class="col-md-4">
+                                <a href="{{ route('question.show', ['id' => $questionItem->id]) }}">{{$questionItem->title}}</a>
+                            </td>
                             <td class="col-md-4">{{$questionItem->created_at->diffForHumans()}}</td>
                             <td class="col-md-4">
                                 <a href="#">{{$user->first_name}} {{$user->last_name}}</a>
                             </td>
-                            <td class="col-md-4">Comments</td>
+                            <td class="col-md-4">Answers</td>
                         </tr>
                     @endforeach
                     </tbody>

@@ -20,7 +20,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::paginate(10);
+        $questions = Question::paginate(5);
         foreach($questions as $question)
         {
             $user = User::findOrFail($question->user_id);
@@ -75,7 +75,8 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        $question = Question::findOrFail($id);
+        return view('question.show', compact('question'));
     }
 
     /**
