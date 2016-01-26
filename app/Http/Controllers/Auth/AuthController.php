@@ -90,7 +90,7 @@ class AuthController extends Controller
     protected function postLogin(LoginRequest $request) {
         if ($this->auth->attempt($request->only('email', 'password'))) {
             return View('auth.success');
-            //return View('posts.list');
+            //return View('question.list');
         }
 
         return redirect('auth/login')->withErrors([

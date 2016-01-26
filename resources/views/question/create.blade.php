@@ -15,7 +15,7 @@
 
             {!! Html::ul($errors->all(), array('class'=>'errors')) !!}
 
-            {!!Form::open(['method' => 'POST', 'url' => route('posts.store')])!!}
+            {!!Form::open(['method' => 'POST', 'url' => route('question.store')])!!}
                 {!! Form::label('title', 'Title') !!}
                 {!! Form::text('title', null, array('class' => 'form-control','placeholder' => 'title')) !!}
 

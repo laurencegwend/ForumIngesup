@@ -1,16 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Post;
-use \Input;
+use App\Question;
+use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
-
-class PostsController extends Controller
+class QuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +20,15 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::get();
+        $questions = Question::paginate(10);
+        foreach($questions as $question)
+        {
+            $user = User::findOrFail($question->user_id);
+            $dt = Carbon::createFromTimestamp(strtotime($question->created_at))->diffForHumans();
+        }
 
-        return View('posts.list', compact('posts'));
+
+        return View('question.list', compact('user', 'questions', 'dt'));
     }
 
     /**
@@ -31,7 +38,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return View ('posts.create');
+        return View ('question.create');
     }
 
     /**
@@ -42,9 +49,22 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $post = Post::create($request->all());
+        $question = Question::create($request->all());
+        if (Auth::check())
+        {
+            // The user is logged in...
+            $question->user_id = Auth::user()->id;
+            $question->save();
+        }
+        else
+        {
+            //Log In
+            return view('auth.login') ;
+        }
 
-        return redirect('admin/posts');
+
+
+        return redirect('questions');
     }
 
     /**
@@ -66,9 +86,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        $post = Post::findOrFail($id);
+        $question = Question::findOrFail($id);
 
-        return View('posts.edit', compact('post'));
+        return View('question.edit', compact('question'));
     }
 
     /**
@@ -80,10 +100,10 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $post = Post::findOrFail($id);
-        $post->update($request->all());
+        $question = Question::findOrFail($id);
+        $question->update($request->all());
 
-        return redirect ('admin/posts');
+        return redirect ('questions');
     }
 
     /**

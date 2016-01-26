@@ -15,7 +15,7 @@
                 </div>
             @endif
 
-            {!!Form::open(['method' => 'PUT', 'url' => route('posts.update', $post)])!!}
+            {!!Form::open(['method' => 'PUT', 'url' => route('question.update', $post)])!!}
 
             <div class="form-group">
                 {!!Form::label('title', 'Title:', ['class' => 'col-sm-2 control-label'])!!}

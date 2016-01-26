@@ -1,0 +1,32 @@
+div.navbar.navbar-default > div.container > li > a {
+    line-height:75px;
+}
+li{
+    list-style-type:none;
+}
+.add-post-link{
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+tr{
+    line-height: 25px!important;
+    min-height: 25px!important;
+    height: 25px!important;
+}
+
+.table>tbody>tr>td
+{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+div.login {
+    width: 850px;
+    height: 750px;
+    border: 2px black solid;
+    text-align: justify;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+
+

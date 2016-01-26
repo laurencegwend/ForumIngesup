@@ -16,73 +16,43 @@ Route::get('/', function () {
 });
 
 
-/*Route::get('/', 'Auth\AuthController@getLogin');
-
-//Authentication routes...
-Route::get('auth/login', 'Auth\AuthController@getLogin');
-Route::post('auth/login', 'Auth\AuthController@postLogin');
-Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-
-// Registration routes...
-Route::get('auth/register', 'Auth\AuthController@getRegister');
-Route::post('auth/register', 'Auth\AuthController@postRegister');
-*/
-
 /* User Authentication */
 Route::get('/', 'Auth\AuthController@getLogin');
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-Route::get('auth/register', 'Auth\AuthController@getRegister');
+Route::get('auth/register', [
+    'as' => 'auth.register',
+    'uses' => 'Auth\AuthController@getRegister'
+
+]);
 Route::post('auth/register/post', 'Auth\AuthController@postRegister');
 
-/*Route::get('login', [
-    'as' => '/auth/login',
-    'uses' => 'Auth\AuthController@getLogin'
+
+Route::get('questions', [
+    'as' => 'question.list',
+    'uses' => 'QuestionController@index'
 ]);
 
-Route::get('register', [
-    'as' => '/auth/register',
-    'uses' => 'Auth\AuthController@getRegister'
-]);
-*/
-
-/* Authenticated users
-Route::group(['middleware' => 'auth'], function()
-{
-    Route::get('users/dashboard', array('as'=>'dashboard', function()
-    {
-        return View('users.dashboard');
-    }));
-});
-*/
-
-
-Route::get('posts', [
-    'as' => 'posts.list',
-    'uses' => 'PostsController@index'
+Route::get('question/create', [
+    'as' => 'question.create',
+    'uses' => 'QuestionController@create'
 ]);
 
-Route::get('posts/create', [
-    'as' => 'posts.create',
-    'uses' => 'PostsController@create'
+Route::get('question/{id}/edit', [
+    'as' => 'question.edit',
+    'uses' => 'QuestionController@edit'
 ]);
 
-Route::get('posts/{id}/edit', [
-    'as' => 'posts.edit',
-    'uses' => 'PostsController@edit'
+Route::post('question/store', [
+    'as' => 'question.store',
+    'uses' => 'QuestionController@store'
 ]);
 
-Route::post('posts/store', [
-    'as' => 'posts.store',
-    'uses' => 'PostsController@store'
-]);
-
-Route::put('posts/{id}/edit', [
-    'as' => 'posts.update',
-    'uses' => 'PostsController@update'
+Route::put('question/{id}/edit', [
+    'as' => 'question.update',
+    'uses' => 'QuestionController@update'
 ]);
 
 
