@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Answer;
-use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\Question;
-use Illuminate\Support\Facades\Auth;
-use Carbon\Carbon;
 
-class QuestionController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +16,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::paginate(5);
-        foreach($questions as $question)
-        {
-            $user = User::findOrFail($question->user_id);
-            $dt = Carbon::createFromTimestamp(strtotime($question->created_at))->diffForHumans();
-        }
-
-
-        return View('question.list', compact('user', 'questions', 'dt', 'nbAnswers'));
+        //
     }
 
     /**
@@ -39,7 +26,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        return View ('question.create');
+        //
     }
 
     /**
@@ -50,22 +37,7 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $question = Question::create($request->all());
-        if (Auth::check())
-        {
-            // The user is logged in...
-            $question->user_id = Auth::user()->id;
-            $question->save();
-        }
-        else
-        {
-            //Log In
-            return view('auth.login') ;
-        }
-
-
-
-        return redirect('questions');
+        //
     }
 
     /**
@@ -76,9 +48,7 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        $question = Question::findOrFail($id);
-        $answers = $question->answers()->get();
-        return view('question.show', compact('question', 'answers'));
+        //
     }
 
     /**
@@ -89,9 +59,7 @@ class QuestionController extends Controller
      */
     public function edit($id)
     {
-        $question = Question::findOrFail($id);
-
-        return View('question.edit', compact('question'));
+        //
     }
 
     /**
@@ -103,10 +71,7 @@ class QuestionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $question = Question::findOrFail($id);
-        $question->update($request->all());
-
-        return redirect ('questions');
+        //
     }
 
     /**

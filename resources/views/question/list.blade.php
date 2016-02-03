@@ -35,7 +35,7 @@
                             <td class="col-md-4">
                                 <a href="#">{{$user->first_name}} {{$user->last_name}}</a>
                             </td>
-                            <td class="col-md-4">Answers</td>
+                            <td class="col-md-4">{{$questionItem->answers()->count()}} answers</td>
                         </tr>
                     @endforeach
                     </tbody>

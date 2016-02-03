@@ -60,6 +60,12 @@ Route::put('question/{id}/edit', [
     'uses' => 'QuestionController@update'
 ]);
 
+Route::post('question/{id}/store', [
+    'as' => 'answer.store',
+    'uses' => 'AnswerController@store'
+]);
+
+
 
 
 
