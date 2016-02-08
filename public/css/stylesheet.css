@@ -69,14 +69,12 @@ div.well{
     font-size: 25px;
 }
 .question-title{
-    border: 1px lightgrey solid;
     border-radius: 10px;
     height: 50px;
     background-color: lightgrey;
     color:darkred;
 }
 .question-content{
-    border: 1px lightgrey solid;
     border-radius: 10px;
     height: 120px;
     background-color: lightgrey;

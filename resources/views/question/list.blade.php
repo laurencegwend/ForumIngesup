@@ -28,14 +28,14 @@
                     <tbody>
                     @foreach($questions as $questionItem)
                         <tr>
-                            <td class="col-md-4">
+                            <td class="col-md-6">
                                 <a href="{{ route('question.show', ['id' => $questionItem->id]) }}">{{$questionItem->title}}</a>
                             </td>
-                            <td class="col-md-4">{{$questionItem->created_at->diffForHumans()}}</td>
-                            <td class="col-md-4">
+                            <td class="col-md-2">{{$questionItem->created_at->diffForHumans()}}</td>
+                            <td class="col-md-2">
                                 <a href="#">{{$user->first_name}} {{$user->last_name}}</a>
                             </td>
-                            <td class="col-md-4">{{$questionItem->answers()->count()}} answers</td>
+                            <td class="col-md-2">{{$questionItem->answers()->count()}} answers</td>
                         </tr>
                     @endforeach
                     </tbody>
