@@ -1,6 +1,18 @@
 div.navbar.navbar-default > div.container > li > a {
     line-height:75px;
 }
+body{
+    background-color: rgba(123, 229, 232, 0.38);
+}
+div.content{
+    text-align: center;
+    margin-top: 160px;
+    margin-bottom: 40px;
+}
+.form-group{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
 li{
     list-style-type:none;
 }
@@ -22,14 +34,13 @@ tr{
 div.login {
     width: 850px;
     height: 750px;
-    border: 2px black solid;
     text-align: justify;
     margin-bottom: 50px;
     margin-top: 50px;
 }
 div.row-login{
-
-    border: 2px black solid;
+    background-color: white;
+    border-radius: 30px;
     text-align: center;
     margin-left: 50px;
     margin-right: 50px;
@@ -40,7 +51,8 @@ div.row.row-login{
     height:500px
 }
 div.row-register{
-    border: 2px black solid;
+    background-color: white;
+    border-radius: 30px;
     text-align: center;
     margin-left: 50px;
     margin-right: 50px;
@@ -69,20 +81,30 @@ div.well{
     font-size: 25px;
 }
 .question-title{
+    background-color: white;
     border-radius: 10px;
     height: 50px;
-    background-color: lightgrey;
     color:darkred;
 }
 .question-content{
+    background-color: white;
     border-radius: 10px;
     height: 120px;
-    background-color: lightgrey;
-}
+ }
 .answer-content{
-    border: 1px lightgrey solid;
+    background-color: white;
     border-radius: 10px;
-    height: 150px;
 }
-.your-answer
+.answer-content>p{
+    text-align: justify;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+}
+}
+.your-answer{
+
+
+}
+
 

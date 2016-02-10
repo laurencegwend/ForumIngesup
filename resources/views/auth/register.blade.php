@@ -13,6 +13,8 @@
         <div class="row row-form">
             {!! Form::open(array('url' => 'auth/register/post','class'=>'form')) !!}
 
+            {!! Form::token() !!}
+
             {!! Form::label('first_name', 'First Name') !!}
             {!! Form::text('first_name', null, array('class' => 'form-control','placeholder' => 'first_name')) !!}
 
@@ -36,7 +38,7 @@
     </div>
     <div class="row row-register">
         <div class="row">
-            <h5>Already Have an Account</h5>
+            <h5><strong>Already Have an Account</strong></h5>
             <a href="/auth/login"><button class="btn btn-primary btn-sm">Sign In</button></a>
         </div>
     </div>

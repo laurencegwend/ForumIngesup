@@ -15,7 +15,7 @@
         <div class="row question-content form-group">{{$question->content}}</div>
 
         @foreach($answers as $answer)
-        <div class="row answer-content form-group">{{$answer->content}}</div>
+        <div class="row answer-content form-group"><p>{{$answer->content}}</p></div>
         @endforeach
 
         {!! Form::open(array('route' => array('answer.store', $question->id), 'method' => 'POST')) !!}
@@ -26,6 +26,8 @@
         </div>
         <div class="row pull-right">
         {!! Form::submit('Send', array('class' => 'btn btn-primary')) !!}
+            <br/>
+            <br/>
         </div>
     </div>
 </div>

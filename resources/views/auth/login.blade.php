@@ -11,23 +11,20 @@
                 @endforeach
             </div>
         @endif
-        <div class="row row-form">
-            {!! Form::open(array('url' => 'auth/login','class'=>'form')) !!}
 
+        {!! Form::open(array('url' => 'auth/login','class'=>'form')) !!}
+        <div class="row row-form">
             <div class="form-group">
                 {!! Form::label('email', 'Email') !!}
                 {!! Form::text('email', null, array('class' => 'form-control','placeholder' => 'firstname.lastname@ynov.com')) !!}
             </div>
-
             <div class="form-group">
                 {!! Form::label('password', 'Password') !!}
                 {!! Form::password('password', array('class' => 'form-control','placeholder' => '********')) !!}
             </div>
-
             {!! Form::submit('Sign In' , array('class' => 'btn btn-primary')) !!}
-
-            {!! Form::close() !!}
         </div>
+        {!! Form::close() !!}
 
         <div class="row">
             <a href="#" class="forgot-password">Forgot Your Password</a>
@@ -35,8 +32,8 @@
     </div>
     <div class="row row-register">
         <div class="row">
-            <h5>Don't Have an Account</h5>
-            <a href="/auth/register"><button class="btn btn-primary btn-sm">Sign Up</button></a>
+            <h5><strong>Don't Have an Account</strong></h5>
+            <a href="/auth/register"><button class="btn btn-primary">Sign Up</button></a>
         </div>
     </div>
 </div>
