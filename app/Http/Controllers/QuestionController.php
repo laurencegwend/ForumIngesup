@@ -51,19 +51,8 @@ class QuestionController extends Controller
     public function store(Request $request)
     {
         $question = Question::create($request->all());
-        if (Auth::check())
-        {
-            // The user is logged in...
-            $question->user_id = Auth::user()->id;
-            $question->save();
-        }
-        else
-        {
-            //Log In
-            return view('auth.login') ;
-        }
-
-
+        $question->user_id = \Auth::user()->id;
+        $question->save();
 
         return redirect('questions');
     }
