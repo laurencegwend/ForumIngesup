@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Question;
-use Illuminate\Support\Facades\Auth;
+use Auth;
 use Carbon\Carbon;
 
 class QuestionController extends Controller
@@ -50,8 +50,11 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        $question = Question::create($request->all());
-        $question->user_id = \Auth::user()->id;
+        /*$question = Question::create($request->all());
+        $question->user_id = Auth::user()->id;
+        dd(Auth::user()->id);
+        */
+        $question = new Question(array('title' => $request->title, 'content' => $request->content, 'user_id' => Auth::user()->id));
         $question->save();
 
         return redirect('questions');
