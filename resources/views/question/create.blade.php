@@ -15,7 +15,7 @@
         <h2>Ask Your Question</h2>
         <br/>
         <br/>
-        {!!Form::open(['method' => 'POST', 'url' => route('question.store')])!!}
+        {!!Form::open(['url' => route('question.store'), 'method' => 'POST'])!!}
         <div class="row">
             <div class="col-md-4">
                 {!! Form::label('title', 'Title') !!}

@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Question;
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
 
 class QuestionController extends Controller
@@ -22,14 +22,14 @@ class QuestionController extends Controller
     public function index()
     {
         $questions = Question::paginate(5);
-        foreach($questions as $question)
+        $allquestions = Question::all();
+        foreach($allquestions as $questionItem)
         {
-            $user = User::findOrFail($question->user_id);
-            $dt = Carbon::createFromTimestamp(strtotime($question->created_at))->diffForHumans();
+            $last_answer = Answer::where('question_id', '=', $questionItem->id)->orderBy('created_at', 'desc')->first();
+            $user = User::findOrFail($last_answer->user_id);
         }
 
-
-        return View('question.list', compact('user', 'questions', 'dt', 'nbAnswers'));
+        return View('question.list', compact('questions', 'questionItem', 'user'));
     }
 
     /**
@@ -50,11 +50,9 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        /*$question = Question::create($request->all());
-        $question->user_id = Auth::user()->id;
-        dd(Auth::user()->id);
-        */
-        $question = new Question(array('title' => $request->title, 'content' => $request->content, 'user_id' => Auth::user()->id));
+        $this->user = Auth::user();
+        $question = Question::create($request->all());
+        $question->user_id = $this->user->id;
         $question->save();
 
         return redirect('questions');
