@@ -22,14 +22,8 @@ class QuestionController extends Controller
     public function index()
     {
         $questions = Question::paginate(5);
-        $allquestions = Question::all();
-        foreach($allquestions as $questionItem)
-        {
-            $last_answer = Answer::where('question_id', '=', $questionItem->id)->orderBy('created_at', 'desc')->first();
-            $user = User::findOrFail($last_answer->user_id);
-        }
 
-        return View('question.list', compact('questions', 'questionItem', 'user'));
+        return View('question.list', compact('questions', 'last_answer'));
     }
 
     /**

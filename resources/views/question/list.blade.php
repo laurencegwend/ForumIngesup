@@ -30,7 +30,11 @@
                         <tr>
                             <td class="col-md-6">
                                 <a href="{{ route('question.show', ['id' => $question->id]) }}">{{$question->title}}</a>
-                                <div>Updated time ago by </div>
+                                @if(!$question->answers()->count() == 0)
+                                <div>Updated time ago by {{$question->answers()->orderBy('created_at', 'desc')->first()->user->first_name}}
+                                                        {{$question->answers()->orderBy('created_at', 'desc')->first()->user->last_name}}
+                                </div>
+                                @endif
                             </td>
                             <td class="col-md-2">{{$question->created_at->diffForHumans()}}</td>
                             <td class="col-md-2">
