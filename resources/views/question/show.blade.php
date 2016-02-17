@@ -11,7 +11,19 @@
             </div>
         @endif
 
-        <div class="row question-title form-group">{{$question->title}}</div>
+        <div class="row question-title form-group">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>{{$question->title}}</td>
+                    </tr>
+                    <tr>
+                        <td class="info-user"> Created {{$question->created_at->diffForHumans()}} by <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a></td>
+                        <td class="info-answers col-md-6">{{$question->answers()->count()}} Answers</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <div class="row question-content form-group">{{$question->content}}</div>
 
         @foreach($answers as $answer)
