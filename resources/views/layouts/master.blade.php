@@ -24,8 +24,8 @@
                 <li class="col-md-6">
                     <a href="/question/create">Ask a Question</a>
                 </li>
-                </li>
                 <li class="navbar-right">
+                    <a href="#"><i class="ion-person"></i></a>
                     <a href="/auth/logout"><i class="ion-power"></i></a>
                 </li>
             </div>

@@ -19,7 +19,7 @@
                     </tr>
                     <tr>
                         <td class="info-user"> Created {{$question->created_at->diffForHumans()}} by <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a></td>
-                        <td class="info-answers col-md-6">{{$question->answers()->count()}} Answers</td>
+                        <td class="info-answers col-md-10 text-right">{{$question->answers()->count()}} Answers</td>
                     </tr>
                 </tbody>
             </table>
