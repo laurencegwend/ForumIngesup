@@ -89,8 +89,7 @@ class AuthController extends Controller
 
     protected function postLogin(LoginRequest $request) {
         if ($this->auth->attempt($request->only('email', 'password'))) {
-            return View('auth.success');
-            //return View('question.list');
+            return redirect()->route('question.list');
         }
 
         return redirect('auth/login')->withErrors([
@@ -109,8 +108,7 @@ class AuthController extends Controller
         $this->user->email = $request->email;
         $this->user->password = bcrypt($request->password);
         $this->user->save();
-        //return redirect('auth/login');
-        return view('auth.success');
+        return redirect()->route('question.list');
     }
 
     /**
