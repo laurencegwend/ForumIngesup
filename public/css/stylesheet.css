@@ -33,16 +33,6 @@ li{
     margin-top: 20px;
     margin-bottom: 10px;
 }
-tr{
-    line-height: 25px!important;
-    min-height: 25px!important;
-    height: 25px!important;
-}
-.table>tbody>tr>td
-{
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
 div.login {
     width: 450px;
     text-align: justify;
@@ -80,12 +70,6 @@ div.row-form, div.row-register {
 div.well{
     font-size: 25px;
 }
-.question-title{
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px 10px 10px 10px;
-    color:#31b0d5;
-}
 .question-content{
     background-color: white;
     border-radius: 10px;
@@ -105,8 +89,25 @@ div.well{
     font-size: 10px;
     color: black;
 }
-.your-answer{
-
+a:hover {
+    text-decoration: none;
 }
-
-
+.question-list-header {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.question-line {
+    border-bottom : solid 1px lightgrey;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+.question-line:hover {
+    background : #F1F1F1;
+}
+.question-line .answers {
+    text-align: center;
+}
+.question-line .answers .nb-answers, .question-line .question-title > a {
+    font-size: 1.4em;
+    font-weight: bold;
+}
