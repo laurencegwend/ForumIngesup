@@ -107,6 +107,21 @@ a:hover {
 .question-line .answers {
     text-align: center;
 }
+.question-line .answers .last-update {
+    position: absolute;
+    bottom: -35px;
+    color: grey;
+    font-size: 0.9em;
+}
+.question-line .question-title .content {
+    position: absolute;
+    bottom: -60px;
+    color: grey;
+    font-size: 0.9em;
+}
+.question-line .created, .question-line .user-full-name {
+    padding-top: 15px;
+}
 .question-line .answers .nb-answers, .question-line .question-title > a {
     font-size: 1.4em;
     font-weight: bold;
