@@ -84,7 +84,7 @@ div.well{
 a:hover {
     text-decoration: none;
 }
-.question-list-header, .question-content, .answer-content, {
+.question-list-header, .question-content, {
     padding-top: 40px;
     padding-bottom: 40px;
 }

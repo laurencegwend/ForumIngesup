@@ -22,7 +22,7 @@
 
         @foreach($answers as $answer)
             <div class="row answer-line">
-                <div class="answer-content col-md-12 col-xs-12">{{$answer->content}}</div>
+                <div class="col-md-12 col-xs-12">{{$answer->content}}</div>
             </div>
         @endforeach
             <br/>
