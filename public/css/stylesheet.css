@@ -70,15 +70,7 @@ div.row-form, div.row-register {
 div.well{
     font-size: 25px;
 }
-.question-content{
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px 10px 10px 10px;
- }
-.answer-content{
-    background-color: white;
-    border-radius: 10px;
-}
+
 .answer-content>p{
     text-align: justify;
     padding: 10px 10px 10px 10px;
@@ -92,11 +84,19 @@ div.well{
 a:hover {
     text-decoration: none;
 }
-.question-list-header {
+.question-list-header, .question-content, .answer-content, {
     padding-top: 40px;
     padding-bottom: 40px;
 }
-.question-line {
+
+.answer-list-header{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1.4em;
+    background-color: lightgrey;
+}
+
+.question-line, .answer-line {
     border-bottom : solid 1px lightgrey;
     padding-top: 40px;
     padding-bottom: 40px;

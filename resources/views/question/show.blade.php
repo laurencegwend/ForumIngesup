@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
         @if($errors->any())
             <div class="alert alert-danger">
                 @foreach($errors->all() as $error)
@@ -10,29 +9,29 @@
                 @endforeach
             </div>
         @endif
-
-        <div class="row question-title form-group">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>{{$question->title}}</td>
-                    </tr>
-                    <tr>
-                        <td class="info-user"> Created {{$question->created_at->diffForHumans()}} by <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a></td>
-                        <td class="info-answers col-md-10 text-right">{{$question->answers()->count()}} Answers</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row col-md-12 col-xs-12 question-list-header">
+                <h2>{{$question->title}}</h2>
+                <div>
+                    Created {{$question->created_at->diffForHumans()}} by <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a>
+                </div>
         </div>
-        <div class="row question-content form-group">{{$question->content}}</div>
+
+        <div class="row col-md-12 col-xs-12 question-line question-content">{{$question->content}}</div>
+
+        <div class="row answer-list-header col-md-12 col-xs-12">{{$question->answers()->count()}} Answers</div>
 
         @foreach($answers as $answer)
-        <div class="row answer-content form-group"><p>{{$answer->content}}</p></div>
+            <div class="row answer-line">
+                <div class="answer-content col-md-12 col-xs-12">{{$answer->content}}</div>
+            </div>
         @endforeach
+            <br/>
+            <br/>
+            <br/>
 
         {!! Form::open(array('route' => array('answer.store', $question->id), 'method' => 'POST')) !!}
 
-        <div class="row your-answer form-group">
+        <div class="row your-answer col-md-12 col-xs-12">
             {!! Form::label('content', 'Your Answer') !!}
             {!! Form::textarea('content', null, array('class' => 'form-control')) !!}
         </div>
@@ -41,6 +40,5 @@
             <br/>
             <br/>
         </div>
-    </div>
 </div>
 @stop
