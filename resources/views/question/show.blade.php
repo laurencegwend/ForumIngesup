@@ -21,24 +21,20 @@
         <div class="row answer-list-header col-md-12 col-xs-12">{{$question->answers()->count()}} Answers</div>
 
         @foreach($answers as $answer)
-            <div class="row answer-line">
+            <div class="row answer-line col-md-12 col-xs-12">
                 <div class="col-md-12 col-xs-12">{{$answer->content}}</div>
             </div>
         @endforeach
-            <br/>
-            <br/>
-            <br/>
 
         {!! Form::open(array('route' => array('answer.store', $question->id), 'method' => 'POST')) !!}
 
-        <div class="row your-answer col-md-12 col-xs-12">
-            {!! Form::label('content', 'Your Answer') !!}
+        <div class="row your-answer">
+            {!! Form::label('content', 'Your Answer', array('class' => 'label-answer')) !!}
             {!! Form::textarea('content', null, array('class' => 'form-control')) !!}
         </div>
+
         <div class="row pull-right">
-        {!! Form::submit('Send', array('class' => 'btn btn-primary')) !!}
-            <br/>
-            <br/>
+        {!! Form::submit('Send', array('class' => 'btn btn-primary label-answer')) !!}
         </div>
 </div>
 @stop
