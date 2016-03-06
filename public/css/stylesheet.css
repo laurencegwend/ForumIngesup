@@ -84,16 +84,22 @@ div.well{
 a:hover {
     text-decoration: none;
 }
-.question-list-header, .question-content, {
+.question-list-header,{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-bottom : solid 1px lightgrey;
+}
+.question-content{
     padding-top: 40px;
     padding-bottom: 40px;
 }
 
-.answer-list-header{
+.answers-count{
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 1.4em;
-    background-color: lightgrey;
+    border-top : solid 1px lightgrey;
+    border-bottom : solid 1px lightgrey;
 }
 
 .question-line, .answer-line {
