@@ -89,6 +89,10 @@ a:hover {
     padding-bottom: 40px;
     border-bottom : solid 1px lightgrey;
 }
+
+.question-header-title{
+    border-bottom : solid 1px lightgrey;
+}
 .question-content{
     padding-top: 40px;
     padding-bottom: 40px;
@@ -98,7 +102,6 @@ a:hover {
     padding-top: 5px;
     padding-bottom: 5px;
     font-size: 1.4em;
-    border-top : solid 1px lightgrey;
     border-bottom : solid 1px lightgrey;
 }
 
