@@ -32,9 +32,12 @@
             {!! Form::label('content', 'Your Answer', array('class' => 'label-answer')) !!}
             {!! Form::textarea('content', null, array('class' => 'form-control')) !!}
         </div>
-
         <div class="row pull-right">
         {!! Form::submit('Send', array('class' => 'btn btn-primary label-answer')) !!}
         </div>
 </div>
+<script>
+    CKEDITOR.replace( 'content' );
+</script>
+
 @stop
