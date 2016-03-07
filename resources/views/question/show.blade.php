@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
         @if($errors->any())
             <div class="alert alert-danger">
                 @foreach($errors->all() as $error)
@@ -10,44 +9,35 @@
                 @endforeach
             </div>
         @endif
-
-        <div class="row question-line">
-            <div class="col-md-6 question-title">
-                <div class="title">
-                    {{$question->title}}
+        <div class="row col-md-12 col-xs-12 question-header-title">
+                <h2>{{$question->title}}</h2>
+                <div>
+                    Created {{$question->created_at->diffForHumans()}} by <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a>
                 </div>
-                <div class="content">
-                    {{$question->content}}
-                </div>
-            </div>
-            <div class="col-md-2 created">{{$question->created_at->diffForHumans()}}</div>
-            <div class="col-md-2 user-full-name">
-                <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a>
-            </div>
-            <div class="col-md-2 answers"><div class="nb-answers">{{$question->answers()->count()}}</div><span>answer(s)</span>
-                @if(!$question->answers()->count() == 0)
-                    <div class="last-update">
-                        Latest answer {{$question->answers()->orderBy('created_at', 'desc')->first()->created_at->diffForHumans()}}
-                    </div>
-                @endif
-            </div>
         </div>
 
+        <div class="row col-md-12 col-xs-12 question-content">{{$question->content}}</div>
+
+        <div class="row col-md-12 col-xs-12 answers-count">{{$question->answers()->count()}} Answer(s)</div>
+
         @foreach($answers as $answer)
-            <div class="row answer-content form-group"><p>{{$answer->content}}</p></div>
+            <div class="row answer-line col-md-12 col-xs-12"> {{$answer->content}}</div>
         @endforeach
 
         {!! Form::open(array('route' => array('answer.store', $question->id), 'method' => 'POST')) !!}
 
-        <div class="row your-answer form-group">
-            {!! Form::label('content', 'Your Answer') !!}
+        <div class="row col-md-12 col-xs-12">
+            <div class="your-answer">
+            {!! Form::label('content', 'Your Answer', array('class' => 'label-answer')) !!}
             {!! Form::textarea('content', null, array('class' => 'form-control')) !!}
+            </div>
+            <div class="row pull-right">
+            {!! Form::submit('Send', array('class' => 'btn btn-primary label-answer')) !!}
+            </div>
         </div>
-        <div class="row pull-right">
-        {!! Form::submit('Send', array('class' => 'btn btn-primary')) !!}
-            <br/>
-            <br/>
-        </div>
-    </div>
 </div>
+<script type="text/javascript">
+    CKEDITOR.replace( 'content' );
+</script>
+
 @stop

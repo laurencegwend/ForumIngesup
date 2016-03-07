@@ -70,15 +70,7 @@ div.row-form, div.row-register {
 div.well{
     font-size: 25px;
 }
-.question-content{
-    background-color: white;
-    border-radius: 10px;
-    padding: 10px 10px 10px 10px;
- }
-.answer-content{
-    background-color: white;
-    border-radius: 10px;
-}
+
 .answer-content>p{
     text-align: justify;
     padding: 10px 10px 10px 10px;
@@ -92,11 +84,28 @@ div.well{
 a:hover {
     text-decoration: none;
 }
-.question-list-header {
+.question-list-header,{
+    padding-top: 40px;
+    padding-bottom: 40px;
+    border-bottom : solid 1px lightgrey;
+}
+
+.question-header-title{
+    border-bottom : solid 1px lightgrey;
+}
+.question-content{
     padding-top: 40px;
     padding-bottom: 40px;
 }
-.question-line {
+
+.answers-count{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 1.4em;
+    border-bottom : solid 1px lightgrey;
+}
+
+.question-line, .answer-line {
     border-bottom : solid 1px lightgrey;
     padding-top: 40px;
     padding-bottom: 40px;
@@ -125,4 +134,8 @@ a:hover {
 .question-line .answers .nb-answers, .question-line .question-title > a, .question-line .question-title > .title {
     font-size: 1.4em;
     font-weight: bold;
+}
+
+.label-answer{
+    margin-top: 30px;
 }
