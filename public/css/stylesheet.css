@@ -136,7 +136,7 @@ a:hover {
 .question-line .created, .question-line .user-full-name {
     padding-top: 15px;
 }
-.question-line .answers .nb-answers, .question-line .question-title > a {
+.question-line .answers .nb-answers, .question-line .question-title > a, .question-line .question-title > .title {
     font-size: 1.4em;
     font-weight: bold;
 }
