@@ -11,23 +11,30 @@
             </div>
         @endif
 
-        <div class="row question-title form-group">
-            <table>
-                <tbody>
-                    <tr>
-                        <td>{{$question->title}}</td>
-                    </tr>
-                    <tr>
-                        <td class="info-user"> Created {{$question->created_at->diffForHumans()}} by <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a></td>
-                        <td class="info-answers col-md-10 text-right">{{$question->answers()->count()}} Answers</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="row question-line">
+            <div class="col-md-6 question-title">
+                <div class="title">
+                    {{$question->title}}
+                </div>
+                <div class="content">
+                    {{$question->content}}
+                </div>
+            </div>
+            <div class="col-md-2 created">{{$question->created_at->diffForHumans()}}</div>
+            <div class="col-md-2 user-full-name">
+                <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a>
+            </div>
+            <div class="col-md-2 answers"><div class="nb-answers">{{$question->answers()->count()}}</div><span>answer(s)</span>
+                @if(!$question->answers()->count() == 0)
+                    <div class="last-update">
+                        Latest answer {{$question->answers()->orderBy('created_at', 'desc')->first()->created_at->diffForHumans()}}
+                    </div>
+                @endif
+            </div>
         </div>
-        <div class="row question-content form-group">{{$question->content}}</div>
 
         @foreach($answers as $answer)
-        <div class="row answer-content form-group"><p>{{$answer->content}}</p></div>
+            <div class="row answer-content form-group"><p>{{$answer->content}}</p></div>
         @endforeach
 
         {!! Form::open(array('route' => array('answer.store', $question->id), 'method' => 'POST')) !!}
