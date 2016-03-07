@@ -105,10 +105,15 @@ a:hover {
     border-bottom : solid 1px lightgrey;
 }
 
-.question-line, .answer-line {
+.question-line{
     border-bottom : solid 1px lightgrey;
     padding-top: 40px;
     padding-bottom: 40px;
+}
+.answer-line{
+    border-bottom : solid 1px lightgrey;
+    padding-top: 40px;
+    padding-bottom: 15px;
 }
 .question-line:hover {
     background : #F1F1F1;
@@ -136,6 +141,10 @@ a:hover {
     font-weight: bold;
 }
 
-.label-answer{
+.answer-form-label{
     margin-top: 30px;
+}
+.answer-user-info{
+    float: right;
+    padding-top: 40px;
 }
