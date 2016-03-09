@@ -11,6 +11,15 @@
             </div>
         @endif
 
+            <div class="row question-list-header">
+                <section class="col-md-6">
+                    <h2>{{$question->title}}</h2>
+                </section>
+                <section class="col-md-6">
+                    <a href="{{ route('question.create') }}" class="pull-right add-post-link">Ask a Question</a>
+                </section>
+            </div>
+
         <div class="row question-title form-group">
             <table>
                 <tbody>
