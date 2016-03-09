@@ -38,6 +38,12 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <!-- Latest compiled and minified JavaScript -->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <!-- CKEditor ready-for-use HTML text editor designed to simplify web content creation.
+         It's a WYSIWYG editor that brings common word processor features directly to your web pages -->
+        <script src="//cdn.ckeditor.com/4.5.7/full/ckeditor.js"></script>
+        <script type="text/javascript">
+            CKEDITOR.replace( 'content' );
+        </script>
 
         <script type="text/javascript">
             $.ajaxSetup({
