@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container">
+    <div class="container">
         @if($errors->any())
             <div class="alert alert-danger">
                 @foreach($errors->all() as $error)
@@ -26,9 +26,6 @@
                 <div class="row question-line">
                     <div class="col-md-6 question-title">
                         <a href="{{ route('question.show', ['id' => $question->id]) }}">{{$question->title}}</a>
-                        <div class="content">
-                            {{str_limit($question->content, 35)}}
-                        </div>
                     </div>
                     <div class="col-md-2 created">{{$question->created_at->diffForHumans()}}</div>
                     <div class="col-md-2 user-full-name">
@@ -42,7 +39,7 @@
                     </div>
                 </div>
             @endforeach
-            <div class="pull-right">{!! $questions->render() !!}</div>
+            <div class="pull-right">{!!$questions->render()!!}</div>
         @endif
-</div>
+    </div>
 @stop

@@ -2,8 +2,7 @@
 
 @section('content')
 
-<div class="container">
-    <div class="row col-md-12">
+    <div class="container">
         @if($errors->any())
             <div class="alert alert-danger">
                 @foreach($errors->all() as $error)
@@ -13,34 +12,22 @@
         @endif
 
         <h2>Ask Your Question</h2>
-        <br/>
-        <br/>
+
         {!!Form::open(['url' => route('question.store'), 'method' => 'POST'])!!}
+
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12 col-xs-12">
                 {!! Form::label('title', 'Title') !!}
-            </div>
-            <div class="col-md-8">
                 {!! Form::text('title', null, array('class' => 'form-control','placeholder' => 'title')) !!}
             </div>
-        </div>
-        <br/>
-        <br/>
-        <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-12 col-xs-12">
                 {!! Form::label('content', 'Content') !!}
-            </div>
-            <div class="col-md-8">
                 {!! Form::textarea('content', null, array('class' => 'form-control')) !!}
             </div>
+            <div class="col-md-12 col-xs-12">
+                {!! Form::submit('Send' , array('class' => 'btn btn-primary pull-right')) !!}
+                {!! Form::close() !!}
+            </div>
         </div>
-        <br/>
-        <br/>
-        <div class="row pull-right">
-            {!! Form::submit('Send' , array('class' => 'btn btn-primary')) !!}
-        </div>
-
-        {!! Form::close() !!}
     </div>
-</div>
 @stop
