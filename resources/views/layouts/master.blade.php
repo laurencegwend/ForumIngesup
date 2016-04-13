@@ -44,6 +44,13 @@
 <script type="text/javascript">
     CKEDITOR.replace( 'content' );
 </script>
+<script type="text/javascript">
+    $(document).ready(function(){
+       $("#btn-vote").click(function(){
+          $("#input-vote").toggle('slow');
+       });
+    });
+</script>
 
 <script type="text/javascript">
     $.ajaxSetup({

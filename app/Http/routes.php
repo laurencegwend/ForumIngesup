@@ -60,6 +60,11 @@ Route::post('question/{id}/store', [
     'uses' => 'AnswerController@store'
 ]);
 
+Route::post('question/{id}/answer/{id}/vote', [
+    'as' => 'answer.vote',
+    'uses' => 'VoteController@store'
+]);
+
 
 
 

@@ -28,10 +28,20 @@
 
         @foreach($answers as $answer)
             <div class="row answer-line">
-                <div class="col-md-1 col-xs-1 answer-vote">A</div>
+                <div class="col-md-1 col-xs-1 answer-vote">
+                    <div> <a href="#"><i class="ion-arrow-up-a"></i></a></div>
+                    <div>0</div>
+                    <div><a href="#"><i class="ion-arrow-down-a"></i></a></div>
+                </div>
                 <div class="col-md-9 col-xs-9">{!!$answer->content !!}</div>
                 <div class="col-md-2 col-xs-2 answer-user-info"> By <a href="#">{{$answer->user->first_name}} {{$answer->user->last_name}}</a><br>
-                    {{$answer->created_at->diffForHumans()}}
+                    {{$answer->created_at->diffForHumans()}}<br/>
+                    <button class="btn btn-primary" id="btn-vote" >Vote</button><br/>
+                    <div id="input-vote">
+                        {!! Form::open(array('route' => array('answer.vote', $question->id, $answer->id), 'method' => 'POST')) !!}
+                        {!! Form::text('content', null, array('class' => 'form-control', 'placeholder' =>  'Note From 0 to 5', 'maxlength'=>1)) !!}
+                        {!! Form::submit('Send', array('class' => 'pull-right btn btn-primary')) !!}
+                    </div>
                 </div>
             </div>
         @endforeach

@@ -8,7 +8,7 @@ class Answer extends Model
 {
     protected $table = 'answer';
 
-    protected $fillable = ['content', 'user_id'];
+    protected $fillable = ['content', 'user_id', 'note_average'];
 
     public function user()
     {
@@ -18,6 +18,11 @@ class Answer extends Model
     public function question()
     {
         return $this->belongsTo('App\Question');
+    }
+
+    public function votes()
+    {
+        return $this->hasMany('App\Vote');
     }
 
 }

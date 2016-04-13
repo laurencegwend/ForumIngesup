@@ -149,3 +149,9 @@ label, input.btn{
     float: right;
     padding-top: 40px;
 }
+.answer-vote{
+    font-size: 20px;
+}
+#input-vote{
+    display: none;
+}
