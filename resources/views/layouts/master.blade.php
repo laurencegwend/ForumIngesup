@@ -25,7 +25,7 @@
             <a href="/question/create">Ask a Question</a>
         </li>
         <li class="navbar-right">
-            <a href="#"><i class="ion-person"></i></a>
+            <span class="auth-user"><i class="ion-person"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</span></i>
             <a href="/auth/logout"><i class="ion-power"></i></a>
         </li>
     </div>

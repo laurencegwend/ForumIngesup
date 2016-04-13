@@ -23,7 +23,7 @@
                 </div>
                 {!! Form::submit('Sign In' , array('class' => 'btn btn-primary')) !!}
             {!! Form::close() !!}
-            <a href="#" class="forgot-password">Forgot Your Password</a>
+            <a href="https://www.google.fr/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=forgot+your+password" class="forgot-password">Forgot Your Password</a>
         </div>
         <div class="row-register">
             <h5><strong>Don't Have an Account</strong></h5>

@@ -13,8 +13,8 @@
             <div class="col-md-12 col-xs-12">
                 <h2>{{$question->title}}</h2>
             </div>
-            <div class="col-md-12 col-xs-12">
-                Created {{$question->created_at->diffForHumans()}} by <a href="#">{{$question->user->first_name}} {{$question->user->last_name}}</a>
+            <div class="col-md-12 col-xs-12 question-title-user-info">
+                Created {{$question->created_at->diffForHumans()}} by <b>{{$question->user->first_name}} {{$question->user->last_name}}</b>
             </div>
         </div>
 
@@ -29,18 +29,24 @@
         @foreach($answers as $answer)
             <div class="row answer-line">
                 <div class="col-md-1 col-xs-1 answer-vote">
-                    <div> <a href="#"><i class="ion-arrow-up-a"></i></a></div>
-                    <div>0</div>
-                    <div><a href="#"><i class="ion-arrow-down-a"></i></a></div>
+                    @if($answer->note_average <> 0)
+                        <span>Note</span>
+                        <div>{{$answer->note_average}}/5</div>
+                    @endif
                 </div>
-                <div class="col-md-9 col-xs-9">{!!$answer->content !!}</div>
-                <div class="col-md-2 col-xs-2 answer-user-info"> By <a href="#">{{$answer->user->first_name}} {{$answer->user->last_name}}</a><br>
+                <div class="col-md-9 col-xs-9">
+                    {!!$answer->content !!}
+                </div>
+                <div class="col-md-2 col-xs-2 answer-user-info"> By <b>{{$answer->user->first_name}} {{$answer->user->last_name}}</b><br>
                     {{$answer->created_at->diffForHumans()}}<br/>
-                    <button class="btn btn-primary" id="btn-vote" >Vote</button><br/>
+                    @if(Auth::user()->id != $answer->user_id)
+                        <button class="btn btn-primary" id="btn-vote" >Vote</button><br/>
+                    @endif
                     <div id="input-vote">
-                        {!! Form::open(array('route' => array('answer.vote', $question->id, $answer->id), 'method' => 'POST')) !!}
-                        {!! Form::text('content', null, array('class' => 'form-control', 'placeholder' =>  'Note From 0 to 5', 'maxlength'=>1)) !!}
-                        {!! Form::submit('Send', array('class' => 'pull-right btn btn-primary')) !!}
+                        {!! Form::open(array('route' => array('answer.vote', 'id' => $question->id, 'answerid' => $answer->id), 'method' => 'POST')) !!}
+                        {!! Form::text('note', null, array('class' => 'form-control', 'placeholder' =>  'Note From 0 to 5', 'maxlength'=>1)) !!}
+                        {!! Form::submit('Send Vote', array('class' => 'pull-right btn btn-primary')) !!}
+                        {!! Form::close() !!}
                     </div>
                 </div>
             </div>
@@ -55,6 +61,7 @@
             <div class="col-md-12 col-xs-12">
                 {!! Form::submit('Send', array('class' => 'pull-right btn btn-primary')) !!}
             </div>
+            {!! Form::close() !!}
         </div>
     </div>
 @stop

@@ -13,7 +13,7 @@ class AddColumnsToAnswer extends Migration
     public function up()
     {
         Schema::table('answer', function (Blueprint $table) {
-            $table->integer('note_average');
+            $table->float('note_average');
         });
     }
 

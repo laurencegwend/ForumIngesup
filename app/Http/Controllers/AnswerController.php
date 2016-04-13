@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Answer;
+use App\Vote;
 use App\Question;
 use Auth;
 
@@ -40,12 +41,15 @@ class AnswerController extends Controller
      */
     public function store(Request $request, $id)
     {
+        //$input = $request->all();
+        //dd($input['content']);
         $answer = Answer::create($request->all());
+        $this->user = Auth::user();
 
         if (Auth::check())
         {
         //The user is logged
-        $answer->user_id = Auth::user()->id;
+        $answer->user_id = $this->user->id;
         $question = Question::findOrFail($id);
         $answer->question_id = $question->id;
         $answer->save();
